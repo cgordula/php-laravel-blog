@@ -37,3 +37,6 @@ Route::get('/', [PostController::class, 'welcome']);
 
 // route that will return a view containing only the authenticated user's posts
 Route::get('/myPost', [PostController::class, 'myPost']);
+
+// route wherein a view showing a specific post with matching URL parameter ID ({}) that will be returned to the user
+Route::get('/posts/{id}', [PostController::class, 'show']);
