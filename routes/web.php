@@ -34,3 +34,6 @@ Route::get('/posts', [PostController::class, 'index']);
 
 // route that will return a view for the welcome page
 Route::get('/', [PostController::class, 'welcome']);
+
+// route that will return a view containing only the authenticated user's posts
+Route::get('/myPost', [PostController::class, 'myPost']);

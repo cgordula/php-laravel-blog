@@ -44,4 +44,21 @@ class PostController extends Controller
         // The 'with()' method will allow us to pass information from the controller to view the page
         return view('posts.index')->with('posts', $posts);
     }
+
+    // action that will return 3 random posts view
+    public function welcome() {
+        $posts = Post::where('isActive', true)->inRandomOrder()->limit(3)->get();
+        return view('welcome')->with('posts', $posts);
+    }
+
+    // action to show only the posts authored byt the authenticated user
+    public function myPost() {
+        if(Auth::user()) {
+            $posts = Auth::user()->posts;
+            return view('posts.index')->with('posts', $posts);
+        }
+        else {
+            return redirect('/login');
+        }
+    }
 }
