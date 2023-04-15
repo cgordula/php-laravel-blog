@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -31,3 +31,6 @@ Route::post('/posts', [PostController::class, 'store']);
 
 // route that will return a view containing all the posts
 Route::get('/posts', [PostController::class, 'index']);
+
+// route that will return a view for the welcome page
+Route::get('/', [PostController::class, 'welcome']);
