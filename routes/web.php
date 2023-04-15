@@ -25,3 +25,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // route to create a post
 Route::get('/posts/create', [PostController::class, 'create']);
+
+// route wherein the form data will be sent via POST method to the /posts URI endpoint
+Route::post('/posts', [PostController::class, 'store']);
+
+// route that will return a view containing all the posts
+Route::get('/posts', [PostController::class, 'index']);
