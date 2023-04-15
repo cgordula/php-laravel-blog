@@ -40,7 +40,8 @@ class PostController extends Controller
 
     // action that will return a view showing all blog posts
     public function index() {
-        $posts = Post::all();
+        // $posts = Post::all();
+        $posts = Post::where('isActive', true)->get();
         // The 'with()' method will allow us to pass information from the controller to view the page
         return view('posts.index')->with('posts', $posts);
     }
@@ -94,11 +95,22 @@ class PostController extends Controller
     }
 
     // action to remove a post
-    public function destroy($id) {
-        $post = Post::find($id);
+    // public function destroy($id) {
+    //     $post = Post::find($id);
         
+    //     if(Auth::user()->id == $post->user_id) {
+    //         $post->delete();
+    //     }
+    //     return redirect('/posts');
+    // }
+
+    // action to archive a post
+    public function archive($id) {
+        $post = Post::find($id);
+
         if(Auth::user()->id == $post->user_id) {
-            $post->delete();
+            $post->isActive = false;
+            $post->save();
         }
         return redirect('/posts');
     }

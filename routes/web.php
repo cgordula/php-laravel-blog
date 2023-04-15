@@ -48,4 +48,7 @@ Route::get('/posts/{id}/edit', [PostController::class, 'edit']);
 Route::put('posts/{id}', [PostController::class, 'update']);
 
 // route that will delete a post of the matching URL parameter
-Route::delete('/posts/{id}', [PostController::class, 'destroy']);
+// Route::delete('/posts/{id}', [PostController::class, 'destroy']);
+
+// route that will archive a post
+Route::delete('posts/{id}', [PostController::class, 'archive']);
