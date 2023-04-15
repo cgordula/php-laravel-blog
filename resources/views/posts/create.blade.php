@@ -5,7 +5,7 @@
 @section('content')
     <form method="POST" action="/posts" class="ms-auto me-auto w-75">
     @csrf
-    
+    @method('PUT')
     <div class="form-group">
         <label for="title">Title</label>
         <input type="text" name="title" id="title" class="form-control">
@@ -13,7 +13,7 @@
 
     <div class="form-group">
         <label for="content">Content</label>
-        <textarea name="content" id="content" class="form-control"></textarea>
+        <textarea name="content" id="content" rows="4"  class="form-control"></textarea>
     </div>
     
     <div class="mt-2">

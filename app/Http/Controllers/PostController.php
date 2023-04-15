@@ -62,8 +62,24 @@ class PostController extends Controller
         }
     }
 
+    // action that will return a view showing a specific post using the URL parameter $id to query for the database entry to be shown.
     public function show($id) {
         $post = Post::find($id);
             return view('posts.show')->with('post', $post);
     }
+
+    // action that will return an edit form for a specific post when a GET request is received at the /posts/{id}/edit endpoint.
+    public function edit($id) {
+        $post = Post::find($id);
+        if(Auth::user()) {
+            if(Auth::user()->id == $post->user_id) {
+                return view('posts.edit')->with('post', $post);
+            }
+            return redirect('/posts');
+        }
+        else {
+            return redirect('/login');
+        }
+    }
+
 }

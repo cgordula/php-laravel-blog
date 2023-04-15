@@ -40,3 +40,6 @@ Route::get('/myPost', [PostController::class, 'myPost']);
 
 // route wherein a view showing a specific post with matching URL parameter ID ({}) that will be returned to the user
 Route::get('/posts/{id}', [PostController::class, 'show']);
+
+// route that will return an edit form for a specific Post
+Route::get('/posts/{id}/edit', [PostController::class, 'edit']);
