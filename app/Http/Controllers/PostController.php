@@ -82,4 +82,14 @@ class PostController extends Controller
         }
     }
 
+    // action to overwrite an existing post when the 'put' route with matching URL parameter ID is accessed
+    public function update(Request $request, $id) {
+        $post = Post::find($id);
+        if(Auth::user()->id == $post->user_id) {
+            $post->title = $request->input('title');
+            $post->content = $request->input('content');
+            $post->save();
+        }
+        return redirect('/posts');
+    }
 }

@@ -5,7 +5,7 @@
 @section('content')
     <form method="POST" action="/posts" class="ms-auto me-auto w-75">
     @csrf
-    @method('PUT')
+
     <div class="form-group">
         <label for="title">Title</label>
         <input type="text" name="title" id="title" class="form-control">

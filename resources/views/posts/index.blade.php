@@ -16,11 +16,11 @@
                         @if(Auth::user()->id == $post->user_id)
                             <div class="card-footer">
                                 <form method="POST" action="/posts/{{$post->id}}">
-                                    <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Edit Post</a>
+                                    <a href="/posts/{{$post->id}}/edit" class="btn btn-primary mt-3">Edit Post</a>
 
                                     @method('DELETE')
                                     @csrf
-                                    <button type="submit" class="btn btn-danger">Delete Post</button>
+                                    <button type="submit" class="btn btn-danger mt-3">Delete Post</button>
                                 </form>
                             </div>
                         @endif

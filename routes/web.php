@@ -43,3 +43,6 @@ Route::get('/posts/{id}', [PostController::class, 'show']);
 
 // route that will return an edit form for a specific Post
 Route::get('/posts/{id}/edit', [PostController::class, 'edit']);
+
+// route that will overwrite an existing post with matching URL parameter ID via PUT method
+Route::put('posts/{id}', [PostController::class, 'update']);
