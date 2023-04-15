@@ -92,4 +92,14 @@ class PostController extends Controller
         }
         return redirect('/posts');
     }
+
+    // action to remove a post
+    public function destroy($id) {
+        $post = Post::find($id);
+        
+        if(Auth::user()->id == $post->user_id) {
+            $post->delete();
+        }
+        return redirect('/posts');
+    }
 }

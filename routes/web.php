@@ -46,3 +46,6 @@ Route::get('/posts/{id}/edit', [PostController::class, 'edit']);
 
 // route that will overwrite an existing post with matching URL parameter ID via PUT method
 Route::put('posts/{id}', [PostController::class, 'update']);
+
+// route that will delete a post of the matching URL parameter
+Route::delete('/posts/{id}', [PostController::class, 'destroy']);
