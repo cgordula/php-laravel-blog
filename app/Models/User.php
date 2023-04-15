@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // many side of relationship
+    // to retrieve all posts from the user we can simply call using "$user->posts"
+    public function posts() {
+        return $this->hasMany('App\Models\Post');
+    }
 }
